@@ -30,8 +30,8 @@ import { Root } from './components/Root';
 import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
-import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
+import { ExplorePage, explorePlugin } from '@backstage/plugin-explore';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
 const app = createApp({
@@ -75,10 +75,6 @@ const routes = (
     <Route path="/create" element={<ScaffolderPage />} />
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route
-      path="/tech-radar"
-      element={<TechRadarPage width={1500} height={800} />}
-    />
-    <Route
       path="/catalog-import"
       element={
         <RequirePermission permission={catalogEntityCreatePermission}>
@@ -90,7 +86,7 @@ const routes = (
       {searchPage}
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
-    <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/explore" element={<ExplorePage />} />
   </FlatRoutes>
 );
 

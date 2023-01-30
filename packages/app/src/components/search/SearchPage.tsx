@@ -7,6 +7,8 @@ import {
   CATALOG_FILTER_EXISTS,
 } from '@backstage/plugin-catalog-react';
 import { TechDocsSearchResultListItem } from '@backstage/plugin-techdocs';
+import { ToolSearchResultListItem } from '@backstage/plugin-explore';
+import BuildIcon from '@material-ui/icons/Build';
 
 import { SearchType } from '@backstage/plugin-search';
 import {
@@ -116,6 +118,16 @@ const SearchPage = () => {
                 <List>
                   {results.map(({ type, document, highlight, rank }) => {
                     switch (type) {
+                    case 'tools':
+                      return (
+                        <ToolSearchResultListItem
+                          icon={<BuildIcon />}
+                          key={document.location}
+                          result={document}
+                          highlight={highlight}
+                          rank={rank}
+                        />
+                      );
                       case 'software-catalog':
                         return (
                           <CatalogSearchResultListItem
