@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
   CatalogEntityPage,
@@ -13,7 +13,6 @@ import {
 import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
 import { SearchPage } from '@backstage/plugin-search';
-import { TechRadarPage } from '@backstage/plugin-tech-radar';
 import {
   TechDocsIndexPage,
   techdocsPlugin,
@@ -33,7 +32,7 @@ import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { RequirePermission } from '@backstage/plugin-permission-react';
-import { ExplorePage, explorePlugin } from '@backstage/plugin-explore';
+import { ExplorePage } from '@backstage/plugin-explore';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
 const app = createApp({
